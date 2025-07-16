@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <title>Profile</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+      }
+      [id] {
+        scroll-margin-top: 72px; /* 원하는 여백 값으로 설정 */
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'selector',
+      };
+    </script>
+  </head>
+  <body
+    class="dark:bg-gray-900 bg-white dark:text-white text-black min-h-screen transition-colors duration-100"
+  >
+    <header class="sticky top-0 backdrop-blur-lg bg-opacity-90 z-10">
+      <nav
+        class="container max-w-4xl mx-auto px-6 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center gap-x-4">
+          <h1 class="text-2xl font-bold">김소혜</h1>
+          <p class="text-sm text-gray-500 dark:text-gray-300">퍼블리셔</p>
+        </div>
+
+        <div class="hidden md:flex items-center gap-x-6">
+          <a href="#" class="hover:text-blue-500 transition-colors">홈</a>
+          <a href="#about" class="hover:text-blue-500 transition-colors"
+            >소개</a
+          >
+          <a href="#skills" class="hover:text-blue-500 transition-colors"
+            >기술</a
+          >
+          <a href="#project" class="hover:text-blue-500 transition-colors"
+            >프로젝트</a
+          >
+          <a href="#contact" class="hover:text-blue-500 transition-colors"
+            >연락처</a
+          >
+          <button
+            id="darkModeToggle"
+            class="p-2 w-10 h-10 rounded-full bg-gray-200 focus:ouline-none focus:ring focus:ring-blue-500 dark:bg-gray-700"
+          >
+            <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+          </button>
+        </div>
+
+        <button
+          id="menuToggle"
+          class="md:hidden p-2 text-gray-700 dark:text-white"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </nav>
+    </header>
+
+    <aside
+      id="mobileMenu"
+      class="block md:hidden fixed right-0 inset-y-0 z-20 w-64 bg-white dark:bg-gray-800 shadow-lg translate-x-full transition-transform duration-300"
+    >
+      <button id="closeMenu" class="p-2 m-4 text-gray-700 dark:text-white">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+
+      <nav class="flex flex-col space-y-4 mt-10 px-6">
+        <a href="#" class="hover:text-blue-500 transition-colors">홈</a>
+        <a href="#about" class="hover:text-blue-500 transition-colors">소개</a>
+        <a href="#skills" class="hover:text-blue-500 transition-colors">기술</a>
+        <a href="#project" class="hover:text-blue-500 transition-colors"
+          >프로젝트</a
+        >
+        <a href="#contact" class="hover:text-blue-500 transition-colors"
+          >연락처</a
+        >
+        <button
+          id="darkModeToggleMobile"
+          class="p-2 w-full rounded-full bg-gray-200 focus:ouline-none focus:ring focus:ring-blue-500 dark:bg-gray-700"
+        >
+          <i class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+        </button>
+      </nav>
+    </aside>
+
+    <main class="container max-w-4xl mx-auto md:py-12 px-6 py-6">
+      <!-- Home -->
+      <section
+        id="home"
+        class="flex flex-col md:flex-row md:justify-between items-center pb-16"
+      >
+        <div class="shrink-0 mb-8 md:mb-0 md:mr-10">
+          <!-- <img
+            class="w-56 h-56 rounded-full border-2 object-cover"
+            src="https://api.dicebear.com/9.x/adventurer/svg?seed=Brian&hair=long09&hairColor=0e0e0e,6a4e35,562306&skinColor=f2d3b1"
+            alt="avatar"
+          /> -->
+          <img
+            class="w-56 h-56 rounded-full border-2 object-cover"
+            src="https://api.dicebear.com/9.x/adventurer/svg?seed=Brian&eyes=variant04&hair=long09&hairColor=85c2c6&skinColor=f2d3b1"
+            alt="avatar"
+          />
+        </div>
+        <div class="md:text-right text-center">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">김소혜</h1>
+          <p class="text-lg md:text-xl mb-4">소통이 편한 퍼블리셔</p>
+          <p class="text-gray-600 dark:text-gray-400 break-keep md:break-all">
+            4년 이상의 경력을 지닌 웹 퍼블리셔로서, 반응형 UI 구현과 웹
+            표준·접근성을 고려한 마크업에 높은 이해도를 가지고 있습니다. 최신
+            JavaScript 프레임워크의 구조를 이해하고 있으며, 구조화된 퍼블리싱과
+            원활한 협업을 지향합니다. 새로운 기술과 도전을 즐기며, 꾸준한 성장을
+            추구합니다.
+          </p>
+        </div>
+      </section>
+      <!-- About -->
+      <section id="about" class="pb-16">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">소개</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article
+            class="bg-gray-100 shadow-md rounded-lg p-6 hover:scale-105 transition-transform duration-300 dark:bg-gray-800"
+          >
+            <h3 class="text-xl font-semibold mb-4">💻 경력</h3>
+            <ul class="text-gray-800 leading-relaxed dark:text-gray-300">
+              <li>👉 2021 - 2022 웹에이전시 1년</li>
+              <li>👉 2022 - 2025 솔루션 전문 SI 기업 2년 5개월</li>
+              <li>👉 2025 ~ 프리랜서 활동</li>
+            </ul>
+          </article>
+          <article
+            class="bg-gray-100 shadow-md rounded-lg p-6 hover:scale-105 transition-transform duration-300 dark:bg-gray-800"
+          >
+            <h3 class="text-xl font-semibold mb-4">💻 프로젝트 경험</h3>
+            <ul class="text-gray-800 leading-relaxed dark:text-gray-300">
+              <li>👉 디자인/개발 협업 환경 경험 (Figma/Git)</li>
+              <li>👉 카페24 기반 게시판 개발</li>
+              <li>👉 인터랙션 중심 페이지 퍼블리싱</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <!-- Skill -->
+      <section id="skills" class="pb-16">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">기술</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div
+            class="flex flex-col items-center bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fa-brands fa-html5 text-4xl text-red-500 mb-1"></i>
+            <h3 class="text-lg font-semibold">HTML5</h3>
+          </div>
+          <div
+            class="flex flex-col items-center bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fa-brands fa-css3-alt text-4xl text-blue-500 mb-1"></i>
+            <h3 class="text-lg font-semibold">CSS3</h3>
+          </div>
+          <div
+            class="flex flex-col items-center bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fa-brands fa-js text-4xl text-yellow-400 mb-1"></i>
+            <h3 class="text-lg font-semibold">JavaScript</h3>
+          </div>
+          <div
+            class="flex flex-col items-center bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fa-brands fa-react text-4xl text-blue-400 mb-1"></i>
+            <h3 class="text-lg font-semibold">React</h3>
+          </div>
+          <div
+            class="flex flex-col items-center bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fa-brands fa-vuejs text-4xl text-green-600 mb-1"></i>
+            <h3 class="text-lg font-semibold">Vue.js</h3>
+          </div>
+          <div
+            class="flex flex-col items-center bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4 hover:scale-105 transition-transform duration-300"
+          >
+            <i class="fa-brands fa-node text-4xl text-green-800 mb-1"></i>
+            <h3 class="text-lg font-semibold">Node.js</h3>
+          </div>
+        </div>
+      </section>
+      <!-- Project -->
+      <section id="project" class="pb-16">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">프로젝트</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article
+            class="bg-gray-100 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden dark:bg-gray-800"
+          >
+            <img
+              class="w-full h-48 object-cover"
+              src="img/project_thumb05.jpg"
+              alt="Hoya&Consulting"
+            />
+            <div class="p-4 md:p-6">
+              <h3
+                class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100"
+              >
+                Hoya&Consulting
+              </h3>
+              <div class="space-x-2 mb-4">
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >HTML</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >CSS</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >jQuery</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >GSAP</span
+                >
+              </div>
+              <div class="space-x-2 flex items-center">
+                <a
+                  href="http://amiablessohye.co.kr/project/hoya/work.htm"
+                  class="text-sm bg-gray-800 text-white px-3 py-1 rounded-md dark:bg-gray-300 dark:text-gray-800"
+                  >View List</a
+                >
+                <a
+                  href="https://hoyanconsulting.com"
+                  class="text-sm bg-blue-600 text-white px-3 py-1 rounded-md"
+                  >View Page</a
+                >
+              </div>
+            </div>
+          </article>
+          <article
+            class="bg-gray-100 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden dark:bg-gray-800"
+          >
+            <img
+              class="w-full h-48 object-cover"
+              src="img/project_thumb02.png"
+              alt=""
+            />
+            <div class="p-4 md:p-6">
+              <h3
+                class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100"
+              >
+                Delishop
+              </h3>
+              <div class="space-x-2 mb-4">
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >HTML</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >CSS</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >jQuery</span
+                >
+              </div>
+              <div class="space-x-2 flex items-center">
+                <a
+                  href="http://amiablessohye.co.kr/project/delishop02/work.htm"
+                  class="text-sm bg-gray-800 text-white px-3 py-1 rounded-md dark:bg-gray-300 dark:text-gray-800"
+                  >View List</a
+                >
+                <a
+                  href="http://amiablessohye.co.kr/project/delishop02/html/main/main.html"
+                  class="text-sm bg-blue-600 text-white px-3 py-1 rounded-md"
+                  >View Page</a
+                >
+              </div>
+            </div>
+          </article>
+          <article
+            class="bg-gray-100 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden dark:bg-gray-800"
+          >
+            <img
+              class="w-full h-48 object-cover"
+              src="img/project_thumb04.png"
+              alt=""
+            />
+            <div class="p-4 md:p-6">
+              <h3
+                class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100"
+              >
+                한샘 홈케어 리뉴얼
+              </h3>
+              <div class="space-x-2 mb-4">
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >HTML</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >CSS</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >jQuery</span
+                >
+              </div>
+              <div class="space-x-2 flex items-center">
+                <a
+                  href="http://amiablessohye.co.kr/project/hanssem/work.htm"
+                  class="text-sm bg-gray-800 text-white px-3 py-1 rounded-md dark:bg-gray-300 dark:text-gray-800"
+                  >View List</a
+                >
+                <a
+                  href="https://hanssemhomecare.com/"
+                  class="text-sm bg-blue-600 text-white px-3 py-1 rounded-md"
+                  >View Page</a
+                >
+              </div>
+            </div>
+          </article>
+          <article
+            class="bg-gray-100 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden dark:bg-gray-800"
+          >
+            <img
+              class="w-full h-48 object-cover"
+              src="img/project_thumb01.png"
+              alt=""
+            />
+            <div class="p-4 md:p-6">
+              <h3
+                class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100"
+              >
+                성형안해도청초
+              </h3>
+              <div class="space-x-2 mb-4">
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >HTML</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >CSS</span
+                >
+                <span
+                  class="bg-gray-200 text-xs px-2 py-0.5 rounded-md text-gray-700 border border-gray-300 leading-none dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600"
+                  >jQuery</span
+                >
+              </div>
+              <div class="space-x-2 flex items-center">
+                <a
+                  href="http://amiablessohye.co.kr/project/cheongcho/work.htm"
+                  class="text-sm bg-gray-800 text-white px-3 py-1 rounded-md dark:bg-gray-300 dark:text-gray-800"
+                  >View List</a
+                >
+                <a
+                  href="https://www.cheongcho.com/main/main.html"
+                  class="text-sm bg-blue-600 text-white px-3 py-1 rounded-md"
+                  >View Page</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Contact -->
+      <section id="contact" class="pb-16">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">연락처</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- <form id="contactForm" class="space-y-4">
+            <div class="">
+              <label for="name" class="block mb-2 font-medium">이름</label>
+              <input
+                type="text"
+                id="name"
+                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+            <div class="">
+              <label for="email" class="block mb-2 font-medium">이메일</label>
+              <input
+                type="email"
+                id="email"
+                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              />
+            </div>
+            <div class="">
+              <label for="message" class="block mb-2 font-medium">메시지</label>
+              <textarea
+                id="message"
+                class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-500 resize-none h-40 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded-md w-full hover:bg-blue-500 transition-colors"
+            >
+              이메일 보내기
+            </button>
+          </form> -->
+          <div class="flex flex-col justify-center items-start gap-4 mt-8">
+            <a
+              href="http://amiablessohye.co.kr/work/work.htm"
+              target="_blank"
+              class="flex items-center space-x-2 text-gray-600 hover:text-blue-500 transition-colors dark:text-gray-300"
+            >
+              <i class="fa-solid fa-house"></i>
+              <span>WorkList</span>
+            </a>
+            <!-- <a
+              href="#"
+              target="_blank"
+              class="flex items-center space-x-2 text-gray-600 hover:text-blue-500 transition-colors dark:text-gray-300"
+            >
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a> -->
+            <a
+              href="mailto:brightsowisehye@naver.com"
+              class="flex items-center space-x-2 text-gray-600 hover:text-blue-500 transition-colors dark:text-gray-300"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              <span>brightsowisehye@naver.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-gray-100 py-6 dark:bg-gray-800">
+      <div
+        class="container max-w-4xl mx-auto px-6 text-center text-xs md:text-sm"
+      >
+        <p>&copy; 2025 김소혜. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function initialTheme() {
+        const darkModeToggleIcon = document
+          .getElementById('darkModeToggle')
+          .querySelector('i');
+        const darkModeToggleMobileIcon = document
+          .getElementById('darkModeToggleMobile')
+          .querySelector('i');
+        if (localStorage.theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          darkModeToggleIcon.className = 'fas fa-sun text-yellow-400';
+          darkModeToggleMobileIcon.className = 'fas fa-sun text-yellow-400';
+        } else {
+          document.documentElement.classList.remove('dark');
+          darkModeToggleIcon.className = 'fas fa-moon text-gray-700';
+          darkModeToggleMobileIcon.className = 'fas fa-moon text-gray-700';
+        }
+      }
+      function toggleDarkMode() {
+        const darkModeToggleIcon = document
+          .getElementById('darkModeToggle')
+          .querySelector('i');
+        const darkModeToggleMobileIcon = document
+          .getElementById('darkModeToggleMobile')
+          .querySelector('i');
+
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.theme = 'light';
+          //fas fa-moon text-gray-700 dark:text-yellow-400
+          darkModeToggleIcon.className = 'fas fa-moon text-gray-700';
+          darkModeToggleMobileIcon.className = 'fas fa-moon text-gray-700';
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.theme = 'dark';
+          darkModeToggleIcon.className = 'fas fa-sun text-yellow-400';
+          darkModeToggleMobileIcon.className = 'fas fa-sun text-yellow-400';
+        }
+      }
+      document
+        .getElementById('darkModeToggle')
+        .addEventListener('click', toggleDarkMode);
+
+      document
+        .getElementById('darkModeToggleMobile')
+        .addEventListener('click', toggleDarkMode);
+
+      //모바일 메뉴 열기
+      const mobileMenu = document.getElementById('mobileMenu');
+      document.getElementById('menuToggle').addEventListener('click', () => {
+        mobileMenu.classList.toggle('translate-x-full');
+      });
+
+      document.getElementById('closeMenu').addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+      });
+
+      initialTheme();
+    </script>
+  </body>
+</html>
